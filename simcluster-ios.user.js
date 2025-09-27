@@ -9,6 +9,16 @@
 // ==/UserScript==
 
 (function () {
+
+Object.defineProperty(navigator, "userAgent", {
+value: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+configurable: true
+});
+
+const meta = document.querySelector('meta[name="viewport"]');
+if (meta) {
+meta.setAttribute("content", "width=device-width, initial-scale=1.0");
+}
   const css = `
 @media (max-width: 767px) {
 
