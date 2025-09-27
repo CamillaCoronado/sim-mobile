@@ -1,3 +1,15 @@
+// ==UserScript==
+// @name         Simcluster CSS tweaks (iOS Userscripts)
+// @namespace    https://yourname.example
+// @version      1.0
+// @description  Inject custom CSS into the site on iOS Safari via Userscripts
+// @match        https://simcluster.*/*
+// @match        https://*.simcluster.*/*
+// @run-at       document-end
+// ==/UserScript==
+
+(function () {
+  const css = `
 @media (max-width: 767px) {
 
     #middle-panel {
@@ -428,3 +440,13 @@
     }
 
 }
+`;
+
+  const id = 'userscripts-injected-css-simcluster';
+  if (!document.getElementById(id)) {
+    const el = document.createElement('style');
+    el.id = id;
+    el.textContent = css;
+    document.documentElement.appendChild(el);
+  }
+})();
